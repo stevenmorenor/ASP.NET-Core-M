@@ -64,3 +64,9 @@ C:\ProyectoCore\WebAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Dr
 C:\ProyectoCore\WebAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\ProyectoCore\WebAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\ProyectoCore\WebAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\MediatR.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\FluentValidation.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
