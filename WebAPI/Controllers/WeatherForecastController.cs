@@ -1,6 +1,7 @@
 using Dominio;
 using Microsoft.AspNetCore.Mvc;
 using Persistencia;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebAPI.Controllers;
 
@@ -11,18 +12,18 @@ namespace WebAPI.Controllers;
 public class WeatherForecastController : ControllerBase
 {
     private readonly CursosOnlineContext context;
-    public WeatherForecastController(CursosOnlineContext _context)
+    private readonly ISystemClock systemClock;
+
+    public WeatherForecastController(CursosOnlineContext _context, ISystemClock systemClock)
     {
         this.context = _context;
+        this.systemClock = systemClock;
     }
-    
+
     [HttpGet]
-    public IEnumerable <Curso> Get()
+    public IEnumerable<Curso> Get()
     {
         var result = context.Curso.ToList();
         return result;
     }
-
-
-
 }

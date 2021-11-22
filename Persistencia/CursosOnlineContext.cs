@@ -1,10 +1,11 @@
 using Dominio;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace Persistencia
 {
-    public class CursosOnlineContext : DbContext
+    public class CursosOnlineContext : IdentityDbContext<Usuario>
     {
         public CursosOnlineContext(DbContextOptions options) : base(options)
         {
@@ -13,6 +14,7 @@ namespace Persistencia
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CursoInstructor>().HasKey(ci => new {ci.InstructorId, ci.CursoId});
         }
 
