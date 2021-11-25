@@ -71,3 +71,6 @@ C:\ProyectoCore\WebAPI\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\ProyectoCore\WebAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\ProyectoCore\WebAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\ProyectoCore\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\Seguridad.dll
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\Seguridad.pdb
+C:\ProyectoCore\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

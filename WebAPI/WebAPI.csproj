@@ -7,8 +7,10 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aplicacion\Aplicacion.csproj"/>
+    <ProjectReference Include="..\Seguridad\Seguridad.csproj"/>
   </ItemGroup>
 </Project>

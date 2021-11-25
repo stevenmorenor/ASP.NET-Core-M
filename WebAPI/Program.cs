@@ -9,6 +9,13 @@ using WebAPI.Middleware;
 using Dominio;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Aplicacion.Contratos;
+using Seguridad;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +27,12 @@ builder.Services.AddDbContext<CursosOnlineContext>(opt => {
 
 builder.Services.AddMediatR(typeof(Consulta.Manejador).Assembly);
 
-builder.Services.AddControllers().AddFluentValidation( cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
+builder.Services.AddControllers( opt => 
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+})
+.AddFluentValidation( cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
 
 var p = builder.Services.AddIdentityCore<Usuario>();
 var IdentityBuilder = new IdentityBuilder(p.UserType, p.Services);
@@ -29,7 +41,21 @@ IdentityBuilder.AddSignInManager<SignInManager<Usuario>>();
 IdentityBuilder.AddSignInManager<SignInManager<Usuario>>();
 builder.Services.TryAddSingleton<ISystemClock, SystemClock>();
 
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = key,
+        ValidateAudience = false,
+        ValidateIssuer = false
+    };
+});
 
+builder.Services.AddScoped<IJwtGenerador, JwtGenerador>();
+
+builder.Services.AddScoped<IUsuarioSesion, UsuarioSesion>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -49,7 +75,7 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 #endregion

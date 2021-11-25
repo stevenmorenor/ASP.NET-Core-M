@@ -2037,11 +2037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProyectoCore\\Persistencia\\Persistencia.csproj",
+      "projectUniqueName": "c:\\ProyectoCore\\Persistencia\\Persistencia.csproj",
       "projectName": "Persistencia",
-      "projectPath": "C:\\ProyectoCore\\Persistencia\\Persistencia.csproj",
+      "projectPath": "c:\\ProyectoCore\\Persistencia\\Persistencia.csproj",
       "packagesPath": "C:\\Users\\Wendy Giraldo\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectoCore\\Persistencia\\obj\\",
+      "outputPath": "c:\\ProyectoCore\\Persistencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Wendy Giraldo\\AppData\\Roaming\\NuGet\\NuGet.Config",

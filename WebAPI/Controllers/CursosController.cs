@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Aplicacion.Cursos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
